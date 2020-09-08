@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/variables';
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+
+    padding: 50px;
+}
+
+body {
+    background-color: $color-background;
+
+    color: $color-font;
+    font-family: $font-sans;
+}

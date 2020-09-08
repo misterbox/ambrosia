@@ -1,0 +1,287 @@
+@import '../../styles/variables.scss';
+
+#hero {
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    height: $size-header-height;
+    width: 100%;
+
+    padding: 0 45px;
+
+    font-size: $font-size-purchase-header;
+
+    border: 1px solid black;
+}
+
+.header-column {
+    grid-column-start: auto;
+
+}
+
+.header-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    height: $size-header-height;
+
+    padding: 47px 0;
+
+    text-transform: uppercase;
+}
+
+.header-group--horizontal {
+    @extend .header-group;
+
+    flex-direction: row;
+    justify-content: center;
+}
+
+.header-group--align_right {
+    @extend .header-group;
+
+    align-items: flex-end;
+}
+
+.header-group__wrapper {
+    padding-bottom: 15px;
+}
+
+.header-group__wrapper > label {
+    display: block;
+}
+
+.header-group__wrapper > input[type="text"] {
+    display: block;
+
+    height: 50px;
+    width: 185px;
+
+    padding: 0 10px;
+
+    border: .5px solid $color-border;
+    border-radius: $border-radius;
+
+    background-color: $color-background;
+    color: $color-font;
+}
+
+.confirm_button {
+    height: 50px;
+    width: 140px;
+
+    border: none;
+    border-radius: $border-radius;
+
+    background-color: $color-confirm;
+    color: $color-confirm-font;
+
+    text-transform: uppercase;
+}
+
+.totals-column--justify_end {
+    display: inline-flex;
+    flex-direction: column;
+    align-content: flex-end;
+
+    width: 50%;
+
+    padding: 0 7.5px 0 0;
+}
+
+.totals-column--justify_start {
+    @extend .totals-column--justify_end;
+
+    align-content: flex-start;
+
+    padding: 0 0 0 7.5px;
+}
+
+.total-item--justify-right {
+    text-align: right;
+}
+
+.total-item {
+    padding-bottom: 18px;
+}
+
+.item-table {
+    border: 1px solid black;
+
+    td:first-of-type {
+        width: 50px;
+
+        text-align: center;
+    }
+
+    td {
+        width: 200px;
+    }
+}
+
+.item-table > table {
+    width: 100%;
+}
+
+.item-table__head {
+    margin: 0px;
+    padding: 14.5px 0;
+
+    color: $color-accent;
+
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.item-table__head > tr {
+    height: 50px;
+}
+
+.item-table__row {
+    height: 50px;
+
+    background-color: white;
+    box-shadow: 0px 0.5px 0px $color-shadow;
+
+    margin-bottom: 10px;
+}
+
+.item-table__input {
+    height: 27px;
+    width: 95px;
+
+    border: .5px solid $color-border;
+    border-radius: $border-radius;
+}
+
+.item-checkbox {
+    display: block;
+
+    height: 25px;
+    width: 25px;
+
+    position: relative;
+    left: 12.5px;
+
+    cursor: pointer;
+
+    // background-color: #eee;
+
+    user-select: none;
+}
+
+.item-checkbox:hover input ~ .item-checkbox__checkbox {
+    background-color: #ccc;
+}
+
+.item-checkbox input:checked ~ .item-checkbox__checkbox {
+    background-color: $color-confirm;
+    border-color: $color-confirm;
+}
+
+.item-checkbox__input {
+    height: 0;
+    width: 0;
+
+    position: absolute;
+
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked {
+        background-color: #2196F3;
+    }
+}
+
+// .item-checkbox__checkmark {
+//     height: 25px;
+//     width: 25px;
+
+//     background-color: #eee;
+
+//     border: .5px solid #eee;
+//     border-radius: $border-radius;
+
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+
+//     &:after {
+//         display: none;
+
+//         position: absolute;
+//         left: 9px;
+//         top: 5px;
+
+//         height: 10px;
+//         width: 5px;
+
+//         border: solid white;
+//         border-width: 0 3px 3px 0;
+//         transform: rotate(45deg);
+
+//         content: "";
+//     }
+// }
+
+.item-checkbox__checkbox {
+    height: 25px;
+    width: 25px;
+
+    // background-color: #eee;
+    border: .5px solid $color-border;
+    border-radius: $border-radius;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    content: "";
+}
+
+.item-checkbox__checkmark {
+    display: none;
+
+    height: 15px;
+    width: 3px;
+
+    position: relative;
+    left: 11px;
+    top: 5px;
+    // left: 0;
+    // top: 0;
+
+    background-color: #eee;
+
+    content: "";
+
+    &:after {
+        display: none;
+
+        height: 3px;
+        width: 15px;
+
+        position: absolute;
+        left: -6px;
+        top: 6px;
+
+        background-color: #eee;
+
+        content: "";
+    }
+}
+
+.item-checkbox input:checked ~ .item-checkbox__checkmark {
+    display: block;
+
+    &:after {
+        display: block;
+    }
+}

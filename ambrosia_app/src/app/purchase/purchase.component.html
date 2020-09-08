@@ -1,0 +1,156 @@
+<form [formGroup]="purchaseForm" (ngSubmit)="submit()">
+  <h1 id="hero">Add A Purchase</h1>
+  <header>
+    <div class="header-column">
+      <div class="header-group">
+        <div class="header-group__wrapper">
+          <label for="merchant_name">Merchant</label>
+          <input type="text" name="merchant_name" formControlName="merchantName">
+        </div>
+        <div class="header-group__wrapper">
+          <label for="purchase_date">Date</label>
+          <input type="text" name="purchase_date" formControlName="purchaseDate">
+        </div>
+      </div>
+    </div>
+    <div class="header-column">
+      <div class="header-group--horizontal">
+        <section class="totals-column--justify_end">
+          <span class="total-item total-item--justify-right">Subtotal:</span>
+          <span class="total-item total-item--justify-right">Tax:</span>
+          <span class="total-item total-item--justify-right">Other:</span>
+          <span class="total-item total-item--justify-right">Total:</span>
+        </section>
+        <section class="totals-column--justify_start">
+          <span class="total-item">$104.98</span>
+          <span class="total-item">$7.45</span>
+          <span class="total-item">$2.51</span>
+          <span class="total-item">$114.91</span>
+        </section>
+      </div>
+    </div>
+    <div class="header-column">
+      <div class="header-group--align_right">
+        <div class="header-group__wrapper">
+          <input class="confirm_button" type="submit" value="Save">
+          <input class="confirm_button" type="button" value="Add Item" (click)="addPurchaseItem()">
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="item-table">
+    <table>
+      <thead class="item-table__head">
+        <tr>
+          <th></th>
+          <th>ITEM</th>
+          <th>PRICE</th>
+          <th>BRAND</th>
+          <th>CATEGORY</th>
+          <th>UNIT</th>
+          <th>UNIT QTY</th>
+          <th>PURCHASED QTY</th>
+        </tr>
+      </thead>
+      <tbody formArrayName="purchaseItems">
+        <!-- <tr class="item-table__row">
+        <td>
+          <label class="item-checkbox">
+            <input type="checkbox" class="item-checkbox__input">
+            <span class="item-checkbox__checkbox"></span>
+            <span class="item-checkbox__checkmark"></span>
+          </label>
+        </td>
+        <td>Toilet Paper</td>
+        <td>$24.95</td>
+        <td>Quilted Northern</td>
+        <td>Supplies</td>
+        <td>100 cnt</td>
+        <td>3500</td>
+        <td>1</td>
+      </tr>
+      <tr class="item-table__row">
+        <td>
+          <label class="item-checkbox">
+            <input type="checkbox" class="item-checkbox__input">
+            <span class="item-checkbox__checkbox"></span>
+            <span class="item-checkbox__checkmark"></span>
+          </label>
+        </td>
+        <td>Peanut Butter</td>
+        <td>$6.75</td>
+        <td>Smucker's</td>
+        <td>Dry Goods</td>
+        <td>lb</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr class="item-table__row">
+        <td>
+          <label class="item-checkbox">
+            <input type="checkbox" class="item-checkbox__input">
+            <span class="item-checkbox__checkbox"></span>
+            <span class="item-checkbox__checkmark"></span>
+          </label>
+        </td>
+        <td>Strawberries</td>
+        <td>$5.25</td>
+        <td>Dristol's</td>
+        <td>Produce</td>
+        <td>lb</td>
+        <td>2</td>
+        <td>1</td>
+      </tr>
+      <tr class="item-table__row">
+        <td>
+          <label class="item-checkbox">
+            <input type="checkbox" class="item-checkbox__input">
+            <span class="item-checkbox__checkbox"></span>
+            <span class="item-checkbox__checkmark"></span>
+          </label>
+        </td>
+        <td>Pinto beans</td>
+        <td>$0.73</td>
+        <td>Great Value</td>
+        <td>Canned Goods</td>
+        <td>oz</td>
+        <td>15</td>
+        <td>4</td>
+      </tr> -->
+        <tr *ngFor="let item of purchaseItems.controls" class="item-table__row">
+          <ng-container [formGroup]="item">
+            <td>
+              <label class="item-checkbox">
+                <input type="checkbox" class="item-checkbox__input">
+                <span class="item-checkbox__checkbox"></span>
+                <span class="item-checkbox__checkmark"></span>
+              </label>
+            </td>
+            <td>
+              <input formControlName="name" class="item-table__input" type="text" name="item_input" />
+            </td>
+            <td>
+              <input formControlName="price" class="item-table__input" type="text" name="item_price" />
+            </td>
+            <td>
+              <input formControlName="brand" class="item-table__input" type="text" name="item_brand" />
+            </td>
+            <td>
+              <input formControlName="category" class="item-table__input" type="text" name="item_category" />
+            </td>
+            <td>
+              <input formControlName="unit" class="item-table__input" type="text" name="item_unit" />
+            </td>
+            <td>
+              <input formControlName="unit_qty" class="item-table__input" type="text" name="item_unit_quantity" />
+            </td>
+            <td>
+              <input formControlName="purchase_qty" class="item-table__input" type="text"
+                name="item_purchased_quantity" />
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</form>
