@@ -25,14 +25,14 @@
           <span class="total-item">$104.98</span>
           <span class="total-item">$7.45</span>
           <span class="total-item">$2.51</span>
-          <span class="total-item">$114.91</span>
+          <span class="total-item">${{purchaseTotal}}</span>
         </section>
       </div>
     </div>
     <div class="header-column">
       <div class="header-group--align_right">
         <div class="header-group__wrapper">
-          <input class="confirm_button" type="submit" value="Save">
+          <input [disabled]="!purchaseForm.valid" class="confirm_button" type="submit" value="Save">
           <input class="confirm_button" type="button" value="Add Item" (click)="addPurchaseItem()">
         </div>
       </div>

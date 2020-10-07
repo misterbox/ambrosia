@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
-
-import { Purchase } from 'src/models/purchase';
+import { FormArray, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-purchase',
@@ -10,18 +8,18 @@ import { Purchase } from 'src/models/purchase';
 })
 export class PurchaseComponent implements OnInit {
   readonly purchaseItemFormGroup = {
-        name: ['', Validators.required],
-        price: ['', Validators.required],
-        brand: ['', Validators.required],
-        category: ['', Validators.required],
-        unit: ['', Validators.required],
-        unit_qty: ['', Validators.required],
-        purchase_qty: ['', Validators.required]
+        name: ['a', Validators.required],
+        price: ['', [Validators.required]],
+        brand: ['a', Validators.required],
+        category: ['a', Validators.required],
+        unit: ['a', Validators.required],
+        unit_qty: ['a', Validators.required],
+        purchase_qty: ['a', Validators.required]
   };
 
   public purchaseForm = this.formBuilder.group({
-    merchantName: ['', Validators.required],
-    purchaseDate: ['', Validators.required],
+    merchantName: ['a', Validators.required],
+    purchaseDate: ['a', Validators.required],
     purchaseItems: this.formBuilder.array([
       this.formBuilder.group(this.purchaseItemFormGroup)
     ])
@@ -34,6 +32,13 @@ export class PurchaseComponent implements OnInit {
 
   get purchaseItems(): FormArray {
     return this.purchaseForm.get('purchaseItems') as FormArray;
+  }
+
+  get purchaseTotal(): number {
+    let purchaseTotal = 0.0;
+    this.purchaseItems.controls.forEach(control => purchaseTotal += +control.get('price').value);
+
+    return purchaseTotal;
   }
 
   addPurchaseItem(): void {
