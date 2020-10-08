@@ -1,23 +1,28 @@
 @import '../../styles/variables.scss';
 
 #hero {
-    font-size: 24px;
-    text-align: center;
-    text-transform: uppercase;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 
-    height: $size-header-height;
-    width: 100%;
+  height: $size-header-height;
+  width: 100%;
 
-    padding: 0 45px;
+  padding: 0 45px;
 
-    font-size: $font-size-purchase-header;
+  font-size: $font-size-purchase-header;
 
-    border: 1px solid black;
+  border: 1px solid black;
+}
+
+input {
+  font-family: $font-sans;
+  font-size: 18px;
 }
 
 .header-column {
@@ -155,7 +160,7 @@ header {
 
 .item-table__input {
     height: 27px;
-    width: 95px;
+    width: 175px;
 
     border: .5px solid $color-border;
     border-radius: $border-radius;
@@ -284,4 +289,8 @@ header {
     &:after {
         display: block;
     }
+}
+
+.disabled {
+  filter: grayscale(0.9);
 }
