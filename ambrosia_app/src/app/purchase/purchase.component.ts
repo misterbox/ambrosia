@@ -8,18 +8,18 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
 })
 export class PurchaseComponent implements OnInit {
   readonly purchaseItemFormGroup = {
-        name: ['a', Validators.required],
+        name: ['', Validators.required],
         price: ['', [Validators.required]],
-        brand: ['a', Validators.required],
-        category: ['a', Validators.required],
-        unit: ['a', Validators.required],
-        unit_qty: ['a', Validators.required],
-        purchase_qty: ['a', Validators.required]
+        brand: ['', Validators.required],
+        category: ['', Validators.required],
+        unit: ['', Validators.required],
+        unit_qty: ['', Validators.required],
+        purchase_qty: ['', Validators.required]
   };
 
   public purchaseForm = this.formBuilder.group({
-    merchantName: ['a', Validators.required],
-    purchaseDate: ['a', Validators.required],
+    merchantName: ['', Validators.required],
+    purchaseDate: ['', Validators.required],
     purchaseItems: this.formBuilder.array([
       this.formBuilder.group(this.purchaseItemFormGroup)
     ])
