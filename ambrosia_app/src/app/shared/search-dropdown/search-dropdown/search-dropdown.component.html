@@ -1,1 +1,5 @@
-<p>search-dropdown works!</p>
+<input type="text" [hidden]="isDropdownOpen" (click)="toggleList()" />
+<div [hidden]="!isDropdownOpen" class="dropdown-content" (blur)="toggleList()">
+  <input #searchDropdownInput id="search-dropdown-input" type="text" (keyup)="onFilterKeyUp($event)" />
+  <span *ngFor="let item of sortedListItems">{{item}}</span>
+</div>

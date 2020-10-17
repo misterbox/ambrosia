@@ -5,7 +5,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PurchaseComponent } from './purchase/purchase.component';
-import { SearchDropdownModule } from './shared/search-dropdown/search-dropdown.module';
+import { SharedModule } from './shared/search-dropdown/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SearchDropdownModule } from './shared/search-dropdown/search-dropdown.m
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    SearchDropdownModule
+    SharedModule
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent]

@@ -1,0 +1,37 @@
+@import 'src/styles/variables.scss';
+
+#search-dropdown-input {
+  border: none;
+  border-bottom: 1px solid #ddd;
+
+  font-family: $font-sans;
+  font-size: 13px;
+
+  padding: 12px 13px;
+
+  &:focus {
+    outline: 3px soild #ddd;
+  }
+}
+
+.dropdown-content {
+  position: absolute;
+  z-index: 1;
+
+  min-width: 175px;
+
+  background-color: #f6f6f6;
+  border: 1px solid #ddd;
+
+  span {
+    display: block;
+
+    padding: 12px 13px;
+
+    color: black;
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }
+}
